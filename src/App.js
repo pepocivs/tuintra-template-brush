@@ -1,25 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import './styles/main.css';
+
+/* Mock Data */
+import clubData from './mocks/clubData.js';
+
+/* Custom Components*/
+import Head from './components/head.js';
+import Menu from './components/menu.js';
+import Footer from './components/footer.js';
+
+/* Views */
+import Home from './views/home.js';
+import Teams from './views/teams.js';
+import News from './views/news.js';
+
+
+ReactDOM.render(
+  <Head 
+    title={clubData.title}
+    favicon={clubData.favicon}
+    mainColor={clubData.mainColor}
+  />,
+  document.getElementById('title')
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Menu
+          shield={clubData.shield}
+          links={clubData.links}
+          color={clubData.mainColor} />
+        <div className="page-body">
+          <Route exact path="/" component={Home} />
+          <Route path="/equipos" component={Teams} />
+          <Route path="/noticias/:id?" component={News} />
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
