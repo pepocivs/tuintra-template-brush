@@ -16,7 +16,6 @@ import Home from './views/home.js';
 import Teams from './views/teams.js';
 import News from './views/news.js';
 
-
 ReactDOM.render(
   <Head 
     title={clubData.title}
