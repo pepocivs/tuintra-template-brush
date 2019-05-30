@@ -1,39 +1,26 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import '../styles/newList.css';
 
-function NewsList({ news }) {
-  if(!news.length) {
+
+export default class NewsList extends React.Component {
+  constructor(props) {
+		super(props);
+		this.news = props.news;
+		this.pepo = props.pepo;
+	}
+	render() {
     return (
       <div>
-        No News
+        {this.pepo}
+        {this.news.map(article => {
+          return (
+            <div key={article._id}>
+              <h2>{ article.title }</h2>
+              <p>{article.subtitle}</p>
+            </div>
+          );
+        })}
       </div>
-    )
+    );
   }
-  return (
-    <div>
-      {news.map(article => {
-        return (
-          <div>
-            <h2>{ article.title }</h2>
-            <p>{ article._id }</p>
-          </div>
-        );
-      })}
-    </div>
-  );
 }
-
-const mapStateToProps = state => {
-  return {
-    news: state.news
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NewsList);

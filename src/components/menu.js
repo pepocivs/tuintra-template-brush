@@ -6,29 +6,29 @@ import '../styles/menu.css';
 export default class Menu extends React.Component {
 	constructor(props) {
 		super(props);
-		this.links = props.links;
-		this.color = props.color;
-		this.shield = props.shield;
+		this.clubInfo = props.clubInfo;
 	}
 	render() {
-		const menuColor = { backgroundColor: this.color };
+		const menuColor = { backgroundColor: this.clubInfo.options.principal_color_web };
 		return (
 			<div id="menu-nav" style={menuColor}>
-        <div className="row">
-					<img id="logo" src={this.shield} alt=""/>
+				<div className="row">
+					<img id="logo" src={this.clubInfo.options.clubs_logo} alt=""/>
 					<div id="nav-holder">
 						<ul>
 							{
-								this.links.map(link => 
-									<li key={link.path}>
-										<Link to={link.path}>{link.name}</Link>
-									</li>
-								)
+								this.clubInfo.menu.map(menuItem => {
+									if(menuItem.visible && menuItem.father === "0")
+										return <li key={menuItem._id}>
+											<Link to={menuItem.link}>{menuItem.title}</Link>
+										</li>
+									return '';
+								})
 							}
 						</ul>
 					</div>
-        </div>
-      </div>
+				</div>
+			</div>
 		)
 	}
 }

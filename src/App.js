@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from 'react-redux';
 import './styles/main.css';
-
-/* Mock Data */
-import clubData from './mocks/clubData.js';
 
 /* Custom Components*/
 import Head from './components/head.js';
@@ -16,32 +14,31 @@ import Home from './views/home.js';
 import Teams from './views/teams.js';
 import News from './views/news.js';
 
-ReactDOM.render(
-  <Head 
-    title={clubData.title}
-    favicon={clubData.favicon}
-    mainColor={clubData.mainColor}
-  />,
-  document.getElementById('title')
-);
-
-function App() {
-  return (
-    <Router>
-      <div>
-        <Menu
-          shield={clubData.shield}
-          links={clubData.links}
-          color={clubData.mainColor} />
-        <div className="page-body">
-          <Route exact path="/" component={Home} />
-          <Route path="/equipos" component={Teams} />
-          <Route path="/noticias/:id?" component={News} />
+function App(stateProps) {
+  if (stateProps.clubInfo && stateProps.clubInfo.length > 0) {
+    const clubInfo = stateProps.clubInfo[0];
+    ReactDOM.render(
+      <Head 
+        title={clubInfo.clubName}
+        favicon={clubInfo.options.favicon}
+        mainColor={clubInfo.options.principal_color_web}
+      />,
+      document.getElementById('title')
+    );
+    return (
+      <Router>
+        <div>
+          <Menu clubInfo={clubInfo} />
+          <div className="page-body">
+            <Route exact path="/" component={() => <Home {...stateProps} />} />
+            <Route path="/equipos" component={() => <Teams {...stateProps} />} />
+            <Route path="/noticias/:id?" component={() => <News {...stateProps} />} />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
-  );
+      </Router>
+    );
+  }
+  return ('');
 }
-
-export default App;
+export default connect(state => state)(App);
