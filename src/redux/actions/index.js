@@ -1,23 +1,17 @@
 import axios from 'axios';
-import { GET_NEWS } from './types.js';
 
 const apiUrl = 'http://api.tuintra.com/ginerdelosrios.es';
 
-export const getNews = () => {
-  return (dispatch) => {
-    return axios.get(`${apiUrl}/news`)
-      .then(response => {
-        dispatch(fetchNews(response.data))
-      })
-      .catch(error => {
-        throw(error);
-      });
-  };
+const axiosGet = (dispatch, endpoint, params = {}) => {
+  return axios.get(`${apiUrl}/${endpoint}`, params)
+    .then(response => {
+      dispatch({
+        type: `GET_${endpoint.toUpperCase()}`,
+        [endpoint]: response.data })
+    })
+    .catch(error => { throw(error) });
 };
 
-export const fetchNews = (news) => {
-  return {
-    type: GET_NEWS,
-    news
-  }
-};
+export const getNews = () => (dispatch) => axiosGet(dispatch, 'news');
+export const getInfo = () => (dispatch) => axiosGet(dispatch, 'info');
+export const getTeams = () => (dispatch) => axiosGet(dispatch, 'teams');

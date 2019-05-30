@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import news from './postReducer';
 
 export default combineReducers({
-    news: news
+  clubInfo: (state = [], action) => action.info || state,
+  news: (state = [], action) => action.news || state,
+  teams: (state = [], action) => action.teams || state,
 });
