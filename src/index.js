@@ -10,6 +10,7 @@ import rootReducer from './redux/reducers/index.js';
 import {
   getInfo,
   getNews,
+  getTeams,
 } from './redux/actions/index.js';
 
 
@@ -20,6 +21,7 @@ const store = createStore(rootReducer, composeEnhancers(
 
 store.dispatch(getInfo());
 store.dispatch(getNews());
+store.dispatch(getTeams());
 
 ReactDOM.render(
   <Provider store={store}>
