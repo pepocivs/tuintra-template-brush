@@ -6,12 +6,10 @@ export default class NewsList extends React.Component {
   constructor(props) {
 		super(props);
 		this.news = props.news;
-		this.pepo = props.pepo;
 	}
 	render() {
     return (
       <div>
-        {this.pepo}
         {this.news.map(article => {
           return (
             <div key={article._id}>

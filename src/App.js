@@ -15,20 +15,19 @@ import Teams from './views/teams.js';
 import News from './views/news.js';
 
 function App(stateProps) {
-  if (stateProps.clubInfo && stateProps.clubInfo.length > 0) {
-    const clubInfo = stateProps.clubInfo[0];
+  if (Object.keys(stateProps.clubInfo).length > 0) {
     ReactDOM.render(
       <Head 
-        title={clubInfo.clubName}
-        favicon={clubInfo.options.favicon}
-        mainColor={clubInfo.options.principal_color_web}
+        title={stateProps.clubInfo.clubName}
+        favicon={stateProps.clubInfo.options.favicon}
+        mainColor={stateProps.clubInfo.options.principal_color_web}
       />,
       document.getElementById('title')
     );
     return (
       <Router>
         <div>
-          <Menu clubInfo={clubInfo} />
+          <Menu clubInfo={stateProps.clubInfo} />
           <div className="page-body">
             <Route exact path="/" component={() => <Home {...stateProps} />} />
             <Route path="/equipos" component={() => <Teams {...stateProps} />} />
