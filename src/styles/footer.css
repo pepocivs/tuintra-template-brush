@@ -1,6 +1,5 @@
 .footer {
   text-align: center;
-  background: #1C1B1B;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -11,4 +10,12 @@
   padding: 10px;
   color: #FFFFFF;
   text-transform: uppercase;
+  height: 35px;
+}
+
+.footer-separator {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 54px;
 }

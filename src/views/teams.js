@@ -14,9 +14,9 @@ export default class Teams extends React.Component {
         {this.teams.map(team => {
           return (
             <div key={team._id}>
-              <h2>{ team.teamName }</h2>
+              <h2>{team.teamName}</h2>
               <p>{team.category} {team.gender}</p>
-							<img style={width} src={team.picture} />
+							<img style={width} src={team.picture} alt={team.teamName} />
             </div>
           );
         })}

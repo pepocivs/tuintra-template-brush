@@ -33,7 +33,7 @@ function App(stateProps) {
             <Route path="/equipos" component={() => <Teams {...stateProps} />} />
             <Route path="/noticias/:id?" component={() => <News {...stateProps} />} />
           </div>
-          <Footer />
+          <Footer {...stateProps} />
         </div>
       </Router>
     );
