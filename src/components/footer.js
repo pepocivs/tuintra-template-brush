@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterSeparator from '../assets/images/footer-separator.js';
 import '../styles/footer.css';
 
 export default class Footer extends React.Component {
@@ -10,12 +11,11 @@ export default class Footer extends React.Component {
 		const footerColor = { 
 			backgroundColor: this.clubInfo.options.secundary_color_web
 		};
-		const footerSeparatorColor = {
-			fill: this.clubInfo.options.secundary_color_web
-		};
 		return (
 			<div>
-				<img className="footer footer-separator" style={footerSeparatorColor} src="./assets/images/footer-separator.svg" alt="" />
+				<div className="footer footer-separator">
+					<FooterSeparator color={this.clubInfo.options.secundary_color_web} />
+				</div>
 				<div className="footer">
 					<div style={footerColor} className="footer-content">
 						Footer stuff
