@@ -1,21 +1,7 @@
-.footer {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 55px;
-}
-
 .footer-content {
   padding: 10px;
+  text-align: center;
   color: #FFFFFF;
   text-transform: uppercase;
-  height: 35px;
-}
-
-.footer-separator {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  bottom: 50px;
+  margin-top: -4px;
 }
