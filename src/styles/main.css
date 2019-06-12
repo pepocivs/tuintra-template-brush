@@ -1,6 +1,12 @@
+@font-face {
+  font-family: Acme;
+  src: url(/assets/Acme-Regular.ttf);
+}
+
 body {
   margin: 0px;
   min-height: 100vh;
+  font-family: 'Acme', sans-serif;
 }
 header {
   grid-area: header;

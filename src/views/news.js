@@ -1,17 +1,23 @@
 import React from 'react';
 import NewsList from '../components/newsList.js';
+import NewsHead from '../components/newsHead.js';
+import '../styles/news.css';
+
 
 export default class News extends React.Component {
 	constructor(props) {
 		super(props);
-		this.news = props.news;
+    this.news = props.news.slice(1);
+    this.highLightedNews = props.news.slice(0, 1);
 	}
 	
 	render() {
 		return (
 			<div>
-        <h2>Notícias</h2>
-				<NewsList news={this.news} />
+				<NewsHead news={this.highLightedNews} />
+				<div className="regularNewsContainer">
+					<NewsList news={this.news} />
+				</div>
       </div>
 		)
 	}

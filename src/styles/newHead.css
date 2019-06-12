@@ -1,0 +1,27 @@
+.newHeader {
+  height: calc(80vh - 160px);
+  /* min-height: 700px; */
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: opacity 2.4s ease-in;
+  box-sizing: inherit;
+  /*position: relative;*/
+  position: absolute;
+  left: 0;
+  top: 70px;
+}
+
+.newHeader img {
+  /*height: 100%;*/
+  max-width: 100%;
+  width: 100%;
+}
+
+@media (max-width: 1170px) {
+
+}
+
+@media (max-width: 768px) {
+
+}

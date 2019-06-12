@@ -1,0 +1,21 @@
+.regularNewsContainer {
+  position: sticky;
+  margin: 400px auto 0 auto;
+  background-color: white;
+  padding-top: 20px;
+  width: calc(1140px - 400px);
+}
+
+@media (max-width: 1170px) {
+  .regularNewsContainer {
+    margin: 300px auto 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .regularNewsContainer {
+    margin: 290px auto 0 auto;
+    width: 100%;
+    padding-top: 0px;
+  }
+}
