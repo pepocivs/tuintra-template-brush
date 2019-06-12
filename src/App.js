@@ -26,14 +26,20 @@ function App(stateProps) {
     );
     return (
       <Router>
-        <div>
-          <Menu clubInfo={stateProps.clubInfo} />
-          <div className="page-body">
-            <Route exact path="/" component={() => <Home {...stateProps} />} />
-            <Route path="/equipos" component={() => <Teams {...stateProps} />} />
-            <Route path="/noticias/:id?" component={() => <News {...stateProps} />} />
-          </div>
-          <Footer />
+        <div className="container">
+          <header>
+            <Menu clubInfo={stateProps.clubInfo} />
+          </header>
+          <main>
+            <div className="page-body">
+              <Route exact path="/" component={() => <Home {...stateProps} />} />
+              <Route path="/equipos" component={() => <Teams {...stateProps} />} />
+              <Route path="/noticias/:id?" component={() => <News {...stateProps} />} />
+            </div>
+          </main>
+          <footer>
+            <Footer {...stateProps} />
+          </footer>
         </div>
       </Router>
     );
