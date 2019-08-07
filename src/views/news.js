@@ -7,8 +7,9 @@ import '../styles/news.css';
 export default class News extends React.Component {
 	constructor(props) {
 		super(props);
-    this.news = props.news.slice(1);
-    this.highLightedNews = props.news.slice(0, 1);
+		const highLightedNews = 3;
+    this.news = props.news.slice(highLightedNews);
+    this.highLightedNews = props.news.slice(0, highLightedNews);
 	}
 	
 	render() {

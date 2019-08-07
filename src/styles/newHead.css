@@ -1,21 +1,47 @@
 .newHeader {
   height: calc(80vh - 160px);
-  /* min-height: 700px; */
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   transition: opacity 2.4s ease-in;
   box-sizing: inherit;
-  /*position: relative;*/
   position: absolute;
   left: 0;
   top: 70px;
 }
 
-.newHeader img {
-  /*height: 100%;*/
-  max-width: 100%;
-  width: 100%;
+.aws-sld__content div {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 10;
+  text-shadow: 
+        /* first layer at 1px */
+        -1px -1px 0px #0F0,
+         0px -1px 0px #0F0,
+         1px -1px 0px #0F0,
+        -1px  0px 0px #0F0,
+         1px  0px 0px #0F0,
+        -1px  1px 0px #0F0,
+         0px  1px 0px #0F0,
+         1px  1px 0px #0F0,
+        /* second layer at 2px */
+        -2px -2px 0px #0F0,
+        -1px -2px 0px #0F0,
+         0px -2px 0px #0F0,
+         1px -2px 0px #0F0,
+         2px -2px 0px #0F0,
+         2px -1px 0px #0F0,
+         2px  0px 0px #0F0,
+         2px  1px 0px #0F0,
+         2px  2px 0px #0F0,
+         1px  2px 0px #0F0,
+         0px  2px 0px #0F0,
+        -1px  2px 0px #0F0,
+        -2px  2px 0px #0F0,
+        -2px  1px 0px #0F0,
+        -2px  0px 0px #0F0,
+        -2px -1px 0px #0F0;
 }
 
 @media (max-width: 1170px) {
@@ -23,5 +49,7 @@
 }
 
 @media (max-width: 768px) {
-
+  .newHeader {
+    max-height: 230px;
+  }
 }
