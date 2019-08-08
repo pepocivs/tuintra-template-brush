@@ -16,7 +16,7 @@ export default class NewsHead extends React.Component {
         <AwesomeSlider className="newHeader">
           {this.news.map((article, key) => (
             <div data-src={article.image} key={key}>
-              <p className="newsCarruselTitle">{article.title}</p>
+              <p>{article.title}</p>
             </div>
           ))}
         </AwesomeSlider>

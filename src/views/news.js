@@ -9,7 +9,7 @@ export default class News extends React.Component {
 		super(props);
 		const highLightedNews = 3;
     this.news = props.news.slice(highLightedNews);
-    this.highLightedNews = props.news.slice(0, highLightedNews);
+	  this.highLightedNews = props.news.slice(0, highLightedNews);
 	}
 	
 	render() {
